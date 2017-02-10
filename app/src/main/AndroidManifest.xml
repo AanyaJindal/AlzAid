@@ -15,6 +15,9 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="com.decode.alzaid.QuestionDisplay" />
+            </intent-filter>
         </activity>
     </application>
 
