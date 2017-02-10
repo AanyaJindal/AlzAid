@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AlzAid</string>
+    <string-array name="questions_array">
+        <item>What do people call you?</item>
+        <item>What is your dad name?</item>
+        <item>What is your mother name?</item>
+        <item>Where is your house located?</item>
+        <item>What is the name of your son?</item>
+        <item>What is the name of your daughter?</item>
+    </string-array>
 </resources>
