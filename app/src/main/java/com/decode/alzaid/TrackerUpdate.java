@@ -38,6 +38,9 @@ public class TrackerUpdate extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Log.d("Service","Started");
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference locref = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
+        locref.child("location").setValue("testtest");
         // Fetch a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
 
