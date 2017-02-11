@@ -1,8 +1,10 @@
 package com.decode.alzaid;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,24 +64,24 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ItemList.get(position) == "New Question") {
-                    Intent intent = new Intent(mcontext,QuestionDetailActivity.class);
+                if(ItemList.get(position).equals("New Question")) {
+                    Intent intent = new Intent(mcontext,QuestionActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mcontext.startActivity(intent);
                 }
-                else if(ItemList.get(position) == "Quiz"){
+                else if(ItemList.get(position).equals("Quiz")){
                     Intent intent = new Intent(mcontext,QuestionDisplay.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mcontext.startActivity(intent);
                 }
-                else if(ItemList.get(position) == "Home"){
+                else if(ItemList.get(position).equals("Home")){
                     Uri gmmIntentUri = Uri.parse("google.navigation:q="+"latitude"+","+"longitude");
                     Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                     mapIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mcontext.startActivity(mapIntent);
 
                 }
-                else if(ItemList.get(position) == "Call Home"){
+                else if(ItemList.get(position).equals("Call Home")){
                     Intent intent = new Intent(Intent.ACTION_DIAL);
                     intent.setData(Uri.parse("tel:0123456789"));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -99,6 +101,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     public int getItemCount() {
         return ItemList.size();
     }
+
+
 
 }
 
