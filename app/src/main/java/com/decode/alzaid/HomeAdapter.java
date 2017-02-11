@@ -78,6 +78,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                     mcontext.startActivity(intent);
 
                 }
+                else if(ItemList.get(position) == "Settings"){
+                    Intent intent = new Intent(mcontext,SettingsActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mcontext.startActivity(intent);
+                }
                 else{
                     Intent intent = new Intent(mcontext,TrackerUpdate.class);
                     mcontext.startService(intent);
