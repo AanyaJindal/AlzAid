@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_question_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,15 +15,17 @@
     <Spinner
         android:id="@+id/sp_questions"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        style="@style/spinnerStyle">
     </Spinner>
+
 
     <com.github.florent37.materialtextfield.MaterialTextField
         android:id="@+id/et_custom_case"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:mtf_image="@mipmap/ic_launcher"
+        app:mtf_image="@mipmap/question"
         android:visibility="gone"
         app:mtf_labelColor="#757575"
         app:mtf_openKeyboardOnFocus="true">
@@ -40,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:mtf_image="@mipmap/ic_launcher"
+        app:mtf_image="@mipmap/correct"
         app:mtf_labelColor="#757575"
         android:focusable="true"
         app:mtf_openKeyboardOnFocus="true">
@@ -56,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:mtf_image="@mipmap/ic_launcher"
+        app:mtf_image="@mipmap/one"
         app:mtf_labelColor="#757575"
         android:focusable="true"
         app:mtf_openKeyboardOnFocus="true">
@@ -72,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:mtf_image="@mipmap/ic_launcher"
+        app:mtf_image="@mipmap/two"
         app:mtf_labelColor="#757575"
         android:focusable="true"
         app:mtf_openKeyboardOnFocus="true">
@@ -88,7 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:mtf_image="@mipmap/ic_launcher"
+        app:mtf_image="@mipmap/three"
         app:mtf_labelColor="#757575"
         android:focusable="true"
         app:mtf_openKeyboardOnFocus="true">
