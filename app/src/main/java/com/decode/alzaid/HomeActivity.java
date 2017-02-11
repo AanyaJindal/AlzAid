@@ -19,7 +19,7 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    String[] itemList = {"Home","Call Home","Quiz","New Question"};
+    String[] itemList = {"Home","Call Home","Quiz","New Question","My Life","Settings"};
     private RecyclerView recyclerView;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference dataref = FirebaseDatabase.getInstance().getReference().child(user.getUid());
