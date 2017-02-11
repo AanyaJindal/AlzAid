@@ -67,12 +67,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                 else if(ItemList.get(position) == "Home"){
                     Uri gmmIntentUri = Uri.parse("google.navigation:q="+"latitude"+","+"longitude");
                     Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mcontext.startActivity(mapIntent);
 
                 }
                 else if(ItemList.get(position) == "Call Home"){
                     Intent intent = new Intent(Intent.ACTION_DIAL);
                     intent.setData(Uri.parse("tel:0123456789"));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mcontext.startActivity(intent);
 
                 }
