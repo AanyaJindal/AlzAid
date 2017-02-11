@@ -18,19 +18,21 @@
     </Spinner>
 
     <com.github.florent37.materialtextfield.MaterialTextField
+        android:id="@+id/et_custom_case"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         app:mtf_image="@mipmap/ic_launcher"
+        android:visibility="gone"
         app:mtf_labelColor="#757575"
         android:focusable="true"
-        android:visibility="gone"
         app:mtf_openKeyboardOnFocus="true">
         <EditText
             android:hint="Custom Question"
             android:id="@+id/et_custom_question"
             android:focusable="false"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="wrap_content" />
     </com.github.florent37.materialtextfield.MaterialTextField>
 
