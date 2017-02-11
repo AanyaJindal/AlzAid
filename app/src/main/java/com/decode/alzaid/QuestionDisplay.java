@@ -3,6 +3,7 @@ package com.decode.alzaid;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -122,6 +125,13 @@ public class QuestionDisplay extends AppCompatActivity {
             cnt--;
             if(type == 1){
                 questText.setText(ques);
+                questText.setVisibility(View.VISIBLE);
+                questImage.setVisibility(View.GONE);
+            }
+            if(type == 2){
+                Glide.with(getApplicationContext()).load(Uri.parse(ques)).into(questImage);
+                questText.setVisibility(View.GONE);
+                questImage.setVisibility(View.VISIBLE); 
             }
         selected = 0;
         tot=0;r=0;w=0;
@@ -184,6 +194,9 @@ public class QuestionDisplay extends AppCompatActivity {
                     cnt--;
                     if(type == 1){
                         questText.setText(ques);
+                    }
+                    if(type == 2){
+                        Glide.with(getApplicationContext()).load(Uri.parse(ques)).into(questImage);
                     }
 
                     submitBtn.setText("Submit");
