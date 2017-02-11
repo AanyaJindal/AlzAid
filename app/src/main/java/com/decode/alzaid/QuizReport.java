@@ -25,7 +25,7 @@ public class QuizReport extends AppCompatActivity {
 
         tvAc.setText(ac.toString());
         tvTotal.setText(total.toString());
-        tvPerc.setText(perc.toString());
+        tvPerc.setText(String.format("%.2f", perc));
 
     }
 }
