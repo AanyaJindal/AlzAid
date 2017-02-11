@@ -41,13 +41,13 @@ public class QuestionDetailActivity extends AppCompatActivity {
         final String[] itm = getResources().getStringArray(R.array.questions_array);
         spQuestions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                Object item = parent.getItemAtPosition(pos);
+                //Object item = parent.getItemAtPosition(pos);
                 ques = itm[pos];
                 if(ques.equals("Custom Question")){
-                    Log.d("custom",ques);
                     mt.setVisibility(View.VISIBLE);
                     etCustomQuestion.setVisibility(View.VISIBLE);
-                    ques = etCustomQuestion.getText().toString();
+                    //ques = etCustomQuestion.getText().toString();
+                    Log.d("custom",ques);
                 }
                 else{
                     etCustomQuestion.setVisibility(View.GONE);
@@ -61,6 +61,11 @@ public class QuestionDetailActivity extends AppCompatActivity {
         btnAddQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(ques.equals("Custom Question")){
+                    ques = etCustomQuestion.getText().toString();
+                    Log.d("custom",ques);
+                }
 
                 ans = etAnswer.getText().toString();
                 op1 = etOption1.getText().toString();

@@ -25,12 +25,11 @@
         app:mtf_image="@mipmap/ic_launcher"
         android:visibility="gone"
         app:mtf_labelColor="#757575"
-        android:focusable="true"
         app:mtf_openKeyboardOnFocus="true">
         <EditText
             android:hint="Custom Question"
             android:id="@+id/et_custom_question"
-            android:focusable="false"
+            android:focusable="true"
             android:layout_width="match_parent"
             android:visibility="gone"
             android:layout_height="wrap_content" />
@@ -48,7 +47,7 @@
         <EditText
             android:hint="Answer"
             android:id="@+id/et_answer"
-            android:focusable="false"
+            android:focusable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.github.florent37.materialtextfield.MaterialTextField>
@@ -64,7 +63,7 @@
         <EditText
             android:hint="Option 1"
             android:id="@+id/et_option1"
-            android:focusable="false"
+            android:focusable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.github.florent37.materialtextfield.MaterialTextField>
@@ -80,7 +79,7 @@
         <EditText
             android:hint="Option 2"
             android:id="@+id/et_option2"
-            android:focusable="false"
+            android:focusable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.github.florent37.materialtextfield.MaterialTextField>
@@ -96,7 +95,7 @@
         <EditText
             android:hint="Option 3"
             android:id="@+id/et_option3"
-            android:focusable="false"
+            android:focusable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.github.florent37.materialtextfield.MaterialTextField>
