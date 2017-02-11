@@ -54,7 +54,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
             @Override
             public void onClick(View v) {
                 if(ItemList.get(position) == "New Question") {
-                    Intent intent = new Intent();
+                    Intent intent = new Intent(mcontext,QuestionDetailActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mcontext.startActivity(intent);
                 }
             }
         });
