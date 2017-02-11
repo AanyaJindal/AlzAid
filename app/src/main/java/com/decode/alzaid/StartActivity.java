@@ -30,6 +30,7 @@ public class StartActivity extends AppCompatActivity {
                     AuthUI.getInstance()
                             .createSignInIntentBuilder()
                             .setIsSmartLockEnabled(false)
+                            .setLogo(R.mipmap.ic_launcher)
                             .setTheme(R.style.AppTheme)
                             .setProviders(AuthUI.GOOGLE_PROVIDER)
                             .build(),RC_SIGN_IN);
