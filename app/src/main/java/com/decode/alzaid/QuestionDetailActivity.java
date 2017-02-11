@@ -1,5 +1,6 @@
 package com.decode.alzaid;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,10 @@ import android.widget.Spinner;
 
 import com.github.florent37.materialtextfield.MaterialTextField;
 
+import java.util.List;
+import java.util.Set;
+import java.util.prefs.Preferences;
+
 public class QuestionDetailActivity extends AppCompatActivity {
 
     private static final String TAG = "QuestionDetailActivity";
@@ -21,6 +26,11 @@ public class QuestionDetailActivity extends AppCompatActivity {
     Button btnAddQuestion;
     MaterialTextField mt;
     String ques, ans, op1, op2, op3;
+
+    SharedPreferences pf;
+    Set<String> ms;
+    List<String> ml;
+    int cnt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +47,8 @@ public class QuestionDetailActivity extends AppCompatActivity {
         mt = (MaterialTextField)findViewById(R.id.et_custom_case);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.questions_array, android.R.layout.simple_spinner_item);
         spQuestions.setAdapter(adapter);
+        pf = getSharedPreferences("Questions",MODE_PRIVATE);
+        cnt = pf.getInt("Q",0);
 
         final String[] itm = getResources().getStringArray(R.array.questions_array);
         spQuestions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -66,11 +78,24 @@ public class QuestionDetailActivity extends AppCompatActivity {
                     ques = etCustomQuestion.getText().toString();
                     Log.d("custom",ques);
                 }
+                else{
+                    ques = itm[spQuestions.getSelectedItemPosition()];
+                }
 
                 ans = etAnswer.getText().toString();
                 op1 = etOption1.getText().toString();
                 op2 = etOption2.getText().toString();
                 op3 = etOption3.getText().toString();
+                SharedPreferences.Editor ed = pf.edit();
+                cnt++;
+                ed.putInt(Integer.toString(cnt)+"_type",1);
+                ed.putString(Integer.toString(cnt)+"_ans",ans);
+                ed.putString(Integer.toString(cnt)+"_op1",op1);
+                ed.putString(Integer.toString(cnt)+"_op2",op2);
+                ed.putString(Integer.toString(cnt)+"_op3",op3);
+                ed.putString(Integer.toString(cnt)+"_ques",ques);
+                ed.putInt("Q",cnt);
+                ed.commit();
 
                 Log.d(TAG, "onClick: "+ques+" "+ans+" "+op1+" "+op2+" "+op3);
 
