@@ -3,6 +3,7 @@ package com.decode.alzaid;
 import android.content.Intent;
 import android.content.UriMatcher;
 import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,8 @@ import com.bumptech.glide.Glide;
 import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
+
+import static java.lang.Math.abs;
 
 public class ImageQuestionActivity extends AppCompatActivity {
 
@@ -58,8 +61,11 @@ public class ImageQuestionActivity extends AppCompatActivity {
             uri = data.getData();
 
             Log.d(TAG, "onActivityResult: " + uri.hashCode());
-            Uri destination = Uri.fromFile(new File(getExternalCacheDir(), "/AlxAid/" + uri.hashCode()));
+            Uri destination = Uri.fromFile(new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "cropped" + uri.hashCode()));
+            Log.d(TAG, "onActivityResult: "+destination);
             Crop.of(uri, destination).asSquare().start(this);
+           ivImage.setVisibility(View.VISIBLE);
+
             Glide.with(this).load(destination).fitCenter().into(ivImage);
 
         }
