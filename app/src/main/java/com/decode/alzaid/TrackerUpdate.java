@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class TrackerUpdate extends IntentService {
 
+    private static final String TAG = "TrackerUpdate";
+    
     public TrackerUpdate() {
         super(TrackerUpdate.class.getName());
     }
@@ -43,6 +45,7 @@ public class TrackerUpdate extends IntentService {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 DatabaseReference locref = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
                 String latitude = Double.toString(location.getLatitude());
+                Log.d(TAG, "onLocationChanged: "+user.getUid());
                 String longitude = Double.toString(location.getLongitude());
                 locref.child("location").setValue(latitude + " " + longitude);
             }
@@ -68,7 +71,7 @@ public class TrackerUpdate extends IntentService {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
 
     }
 
