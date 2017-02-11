@@ -25,6 +25,8 @@ public class ImageQuestionActivity extends AppCompatActivity {
 
     Button addImage, addQuestioni;
     ImageView ivImage;
+    EditText etAnsi, etOp1i, etOp2i, etOp3i;
+    String ansi, op1i, op2i, op3i;
     public static final int PICK_IMAGE_REQUEST = 51;
 
     Uri uri;
@@ -37,6 +39,10 @@ public class ImageQuestionActivity extends AppCompatActivity {
         addImage = (Button) findViewById(R.id.btn_add_image);
         addQuestioni = (Button) findViewById(R.id.btn_add_questioni);
         ivImage = (ImageView) findViewById(R.id.iv_image);
+        etAnsi = (EditText) findViewById(R.id.et_answeri);
+        etOp1i = (EditText) findViewById(R.id.et_option1i);
+        etOp2i = (EditText) findViewById(R.id.et_option2i);
+        etOp3i = (EditText) findViewById(R.id.et_option3i);
 
         addImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +52,18 @@ public class ImageQuestionActivity extends AppCompatActivity {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
 
+            }
+        });
+
+        addQuestioni.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ansi = etAnsi.getText().toString();
+                op1i = etOp1i.getText().toString();
+                op2i = etOp2i.getText().toString();
+                op3i = etOp3i.getText().toString();
+
+                Log.d(TAG, "onClick: "+ansi+" "+op1i+" "+op2i+" "+op3i  );
             }
         });
 
