@@ -90,6 +90,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
                 cnt++;
                 ed.putInt(Integer.toString(cnt)+"_type",1);
                 ed.putString(Integer.toString(cnt)+"_ans",ans);
+                ed.putString(Integer.toString(cnt)+"_op4",ans);
                 ed.putString(Integer.toString(cnt)+"_op1",op1);
                 ed.putString(Integer.toString(cnt)+"_op2",op2);
                 ed.putString(Integer.toString(cnt)+"_op3",op3);
