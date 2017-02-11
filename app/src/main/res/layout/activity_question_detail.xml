@@ -130,7 +130,6 @@
         fbutton:shadowHeight="5dp"
         fbutton:cornerRadius="5dp"
         android:layout_margin="5dp"
-        android:layout_weight="1"
         android:layout_marginTop="5dp"
         android:textSize="18dp"
         android:textColor="#ffffff"/>
