@@ -1,6 +1,7 @@
 package com.decode.alzaid;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -48,6 +49,10 @@ public class HomeActivity extends AppCompatActivity {
         sos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                sendIntent.setData(Uri.parse("sms:" + "0123456789"));
+                sendIntent.putExtra("sms_body", "SOS! - Lat : 28.7502331 , Long : 77.1141703");
+                startActivity(sendIntent);
 
             }
         });
