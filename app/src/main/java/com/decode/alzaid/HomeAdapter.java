@@ -69,11 +69,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mcontext.startActivity(intent);
                 }
-                else if(ItemList.get(position).equals("Quiz")){
-                    Intent intent = new Intent(mcontext,QuestionDisplay.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    mcontext.startActivity(intent);
-                }
                 else if(ItemList.get(position).equals("Home")){
                     Uri gmmIntentUri = Uri.parse("google.navigation:q="+"latitude"+","+"longitude");
                     Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);

@@ -19,12 +19,13 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    String[] itemList = {"Home","Call Home","Quiz","New Question","My Life","Settings"};
+    String[] itemList = {"Home","Call Home","New Question","Settings"};
     private RecyclerView recyclerView;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference dataref = FirebaseDatabase.getInstance().getReference().child(user.getUid());
 
     Button sos;
+    Button quiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,15 @@ public class HomeActivity extends AppCompatActivity {
         List<String> st = Arrays.asList(itemList);
         recyclerView = (RecyclerView) findViewById(R.id.home_recycler_view);
         sos = (Button)findViewById(R.id.home_sos);
+        quiz = (Button)findViewById(R.id.home_quiz);
+
+        quiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,QuestionDisplay.class);
+                startActivity(intent);
+            }
+        });
 
         sos.setOnClickListener(new View.OnClickListener() {
             @Override
