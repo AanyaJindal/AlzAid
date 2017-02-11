@@ -56,6 +56,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                 if(ItemList.get(position) == "New Question") {
                     Intent intent = new Intent();
                 }
+                else{
+                    Intent intent = new Intent(mcontext,TrackerUpdate.class);
+                    mcontext.startService(intent);
+                }
             }
         });
 
