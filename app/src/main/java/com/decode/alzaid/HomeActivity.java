@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,6 +23,9 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference dataref = FirebaseDatabase.getInstance().getReference().child(user.getUid());
+
+    Button sos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,15 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         List<String> st = Arrays.asList(itemList);
         recyclerView = (RecyclerView) findViewById(R.id.home_recycler_view);
+        sos = (Button)findViewById(R.id.home_sos);
+
+        sos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         RecyclerView.Adapter mAdapter = new HomeAdapter(st,getApplicationContext());
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getApplicationContext(),2);
         recyclerView.setLayoutManager(mLayoutManager);
