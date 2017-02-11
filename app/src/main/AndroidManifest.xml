@@ -43,10 +43,11 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".ImageQuestionActivity" />
         <activity android:name=".QuestionDisplay" />
         <activity android:name=".QuestionActivity" />
         <activity android:name=".QuizReport"></activity>
+        <activity android:name=".ImageQuestionActivity" />
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>
