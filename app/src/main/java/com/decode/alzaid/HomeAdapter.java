@@ -58,6 +58,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mcontext.startActivity(intent);
                 }
+                else{
+                    Intent intent = new Intent(mcontext,TrackerUpdate.class);
+                    mcontext.startService(intent);
+                }
             }
         });
 
