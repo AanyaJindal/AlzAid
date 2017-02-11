@@ -80,6 +80,7 @@ public class ImageQuestionActivity extends AppCompatActivity {
                 ed.putString(Integer.toString(cnt)+"_ques",destination.toString());
                 ed.putInt("Q",cnt);
                 ed.commit();
+                finish();
 
                 Log.d(TAG, "onClick: "+ans+" "+op1+" "+op2+" "+op3  );
             }

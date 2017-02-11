@@ -97,7 +97,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
                 ed.putString(Integer.toString(cnt)+"_ques",ques);
                 ed.putInt("Q",cnt);
                 ed.commit();
-
+                finish();
                 Log.d(TAG, "onClick: "+ques+" "+ans+" "+op1+" "+op2+" "+op3);
 
             }
