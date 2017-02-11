@@ -50,6 +50,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         //Movie movie = ItemList.get(position);
+        if(position==0||position==1)
+            holder.button.setBackgroundColor(mcontext.getResources().getColor(R.color.darkRed));
+        else if(position==2||position==3)
+            holder.button.setBackgroundColor(mcontext.getResources().getColor(R.color.lightRed));
+        else if(position==4||position==5)
+            holder.button.setBackgroundColor(mcontext.getResources().getColor(R.color.lighterRed));
+
+
         holder.button.setText(ItemList.get(position));
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
