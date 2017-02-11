@@ -45,6 +45,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ImageQuestionActivity"></activity>
+        <activity android:name=".QuestionDisplay"></activity>
     </application>
 
 </manifest>
