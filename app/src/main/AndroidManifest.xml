@@ -45,7 +45,8 @@
         </activity>
         <activity android:name=".ImageQuestionActivity" />
         <activity android:name=".QuestionDisplay" />
-        <activity android:name=".QuestionActivity"></activity>
+        <activity android:name=".QuestionActivity" />
+        <activity android:name=".QuizReport"></activity>
     </application>
 
 </manifest>

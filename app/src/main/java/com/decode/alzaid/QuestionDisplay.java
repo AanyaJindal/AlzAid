@@ -1,5 +1,6 @@
 package com.decode.alzaid;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -153,11 +154,18 @@ public class QuestionDisplay extends AppCompatActivity {
                     if(selans.equals(ans)){
                         r++;
                     }
-                    else
+                    else{
                         w++;
-
+                    }
                 }
                 else{
+                    if(tot == 3){
+                        Intent intent = new Intent(QuestionDisplay.this,QuizReport.class);
+                        intent.putExtra("Correct",r);
+                        intent.putExtra("Total",tot);
+                        startActivity(intent);
+                        finish();
+                    }
                     q = rnd.nextInt(cnt-1)+1;
 
                     int opr = rnd.nextInt(3);
