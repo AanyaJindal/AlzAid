@@ -1,5 +1,6 @@
 package com.decode.alzaid;
 
+import android.app.IntentService;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -18,8 +19,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class TrackerUpdate extends Service {
+public class TrackerUpdate extends IntentService {
+
     public TrackerUpdate() {
+        super(TrackerUpdate.class.getName());
     }
 
     @Override
@@ -28,8 +31,7 @@ public class TrackerUpdate extends Service {
     }
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected void onHandleIntent(Intent intent) {
         Log.d("Service","Started");
         // Fetch a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -67,6 +69,12 @@ public class TrackerUpdate extends Service {
             return;
         }
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
 
     }
 }
