@@ -131,7 +131,7 @@ public class QuestionDisplay extends AppCompatActivity {
             if(type == 2){
                 Glide.with(getApplicationContext()).load(Uri.parse(ques)).into(questImage);
                 questText.setVisibility(View.GONE);
-                questImage.setVisibility(View.VISIBLE); 
+                questImage.setVisibility(View.VISIBLE);
             }
         selected = 0;
         tot=0;r=0;w=0;
@@ -194,11 +194,19 @@ public class QuestionDisplay extends AppCompatActivity {
                     cnt--;
                     if(type == 1){
                         questText.setText(ques);
+                        questText.setVisibility(View.VISIBLE);
+                        questImage.setVisibility(View.GONE);
                     }
                     if(type == 2){
                         Glide.with(getApplicationContext()).load(Uri.parse(ques)).into(questImage);
+                        questText.setVisibility(View.GONE);
+                        questImage.setVisibility(View.VISIBLE);
                     }
-
+                    op1.setBackgroundColor(getResources().getColor(R.color.button_unchecked));
+                    op2.setBackgroundColor(getResources().getColor(R.color.button_unchecked));
+                    op3.setBackgroundColor(getResources().getColor(R.color.button_unchecked));
+                    op4.setBackgroundColor(getResources().getColor(R.color.button_unchecked));
+                    selected = 0;
                     submitBtn.setText("Submit");
 
                 }
