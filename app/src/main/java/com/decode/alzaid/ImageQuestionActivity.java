@@ -1,6 +1,7 @@
 package com.decode.alzaid;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.UriMatcher;
 import android.net.Uri;
 import android.os.Environment;
@@ -26,9 +27,11 @@ public class ImageQuestionActivity extends AppCompatActivity {
     Button addImage, addQuestioni;
     ImageView ivImage;
     EditText etAnsi, etOp1i, etOp2i, etOp3i;
-    String ansi, op1i, op2i, op3i;
+    String ans, op1, op2, op3;
+    SharedPreferences pf;
+    int cnt;
     public static final int PICK_IMAGE_REQUEST = 51;
-
+    Uri destination;
     Uri uri;
 
     @Override
@@ -44,6 +47,9 @@ public class ImageQuestionActivity extends AppCompatActivity {
         etOp2i = (EditText) findViewById(R.id.et_option2i);
         etOp3i = (EditText) findViewById(R.id.et_option3i);
 
+        pf = getSharedPreferences("Questions",MODE_PRIVATE);
+        cnt = pf.getInt("Q",0);
+
         addImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,12 +64,24 @@ public class ImageQuestionActivity extends AppCompatActivity {
         addQuestioni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ansi = etAnsi.getText().toString();
-                op1i = etOp1i.getText().toString();
-                op2i = etOp2i.getText().toString();
-                op3i = etOp3i.getText().toString();
+                ans = etAnsi.getText().toString();
+                op1 = etOp1i.getText().toString();
+                op2 = etOp2i.getText().toString();
+                op3 = etOp3i.getText().toString();
 
-                Log.d(TAG, "onClick: "+ansi+" "+op1i+" "+op2i+" "+op3i  );
+                SharedPreferences.Editor ed = pf.edit();
+                cnt++;
+                ed.putInt(Integer.toString(cnt)+"_type",2);
+                ed.putString(Integer.toString(cnt)+"_ans",ans);
+                ed.putString(Integer.toString(cnt)+"_op4",ans);
+                ed.putString(Integer.toString(cnt)+"_op1",op1);
+                ed.putString(Integer.toString(cnt)+"_op2",op2);
+                ed.putString(Integer.toString(cnt)+"_op3",op3);
+                ed.putString(Integer.toString(cnt)+"_ques",destination.toString());
+                ed.putInt("Q",cnt);
+                ed.commit();
+
+                Log.d(TAG, "onClick: "+ans+" "+op1+" "+op2+" "+op3  );
             }
         });
 
@@ -79,7 +97,7 @@ public class ImageQuestionActivity extends AppCompatActivity {
             uri = data.getData();
 
             Log.d(TAG, "onActivityResult: " + uri.hashCode());
-            Uri destination = Uri.fromFile(new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "cropped" + uri.hashCode()));
+            destination = Uri.fromFile(new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "cropped" + uri.hashCode()));
             Log.d(TAG, "onActivityResult: "+destination);
             Crop.of(uri, destination).asSquare().start(this);
            ivImage.setVisibility(View.VISIBLE);

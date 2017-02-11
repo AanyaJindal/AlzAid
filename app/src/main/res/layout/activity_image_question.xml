@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -15,11 +16,27 @@
     android:orientation="vertical"
     tools:context="com.decode.alzaid.ImageQuestionActivity">
     
-    <Button
+    <!--<Button-->
+        <!--android:id="@+id/btn_add_image"-->
+        <!--android:text="ADD IMAGE"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <info.hoang8f.widget.FButton
         android:id="@+id/btn_add_image"
         android:text="ADD IMAGE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        fbutton:buttonColor="#F4511E"
+        fbutton:shadowColor="#E64A19"
+        fbutton:shadowEnabled="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="5dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"/>
     
     <ImageView
         android:layout_gravity="center_horizontal"
@@ -32,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:mtf_image="@mipmap/ic_launcher"
+        app:mtf_image="@mipmap/correct"
         app:mtf_labelColor="#757575"
         android:focusable="true"
         app:mtf_openKeyboardOnFocus="true">
@@ -48,7 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:mtf_image="@mipmap/ic_launcher"
+        app:mtf_image="@mipmap/one"
         app:mtf_labelColor="#757575"
         android:focusable="true"
         app:mtf_openKeyboardOnFocus="true">
@@ -64,7 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:mtf_image="@mipmap/ic_launcher"
+        app:mtf_image="@mipmap/two"
         app:mtf_labelColor="#757575"
         android:focusable="true"
         app:mtf_openKeyboardOnFocus="true">
@@ -80,7 +97,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:mtf_image="@mipmap/ic_launcher"
+        app:mtf_image="@mipmap/three"
         app:mtf_labelColor="#757575"
         android:focusable="true"
         app:mtf_openKeyboardOnFocus="true">
@@ -92,12 +109,30 @@
             android:layout_height="wrap_content" />
     </com.github.florent37.materialtextfield.MaterialTextField>
 
-    <Button
-        android:text="ADD QUESTION"
-        android:layout_gravity="bottom|right"
+    <!--<Button-->
+        <!--android:text="ADD QUESTION"-->
+        <!--android:layout_gravity="bottom|right"-->
+        <!--android:id="@+id/btn_add_questioni"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <info.hoang8f.widget.FButton
         android:id="@+id/btn_add_questioni"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="ADD QUESTION"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        fbutton:buttonColor="#c62828"
+        fbutton:shadowColor="#b71c1c"
+        android:padding="10dp"
+        fbutton:shadowEnabled="true"
+        fbutton:shadowHeight="5dp"
+        fbutton:cornerRadius="5dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:textSize="18dp"
+        android:textColor="#ffffff"/>
 
 </LinearLayout>
 </ScrollView>
