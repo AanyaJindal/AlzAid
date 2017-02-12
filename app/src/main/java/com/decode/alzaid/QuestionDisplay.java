@@ -144,24 +144,57 @@ public class QuestionDisplay extends AppCompatActivity {
                         case 1:
                             selans = op1.getText().toString();
                             submitBtn.setText("Continue");
+                            if(selans.equals(ans)){
+                                op1.setBackgroundColor(getResources().getColor(R.color.Green));
+                                r++;
+                            }
+                            else{
+                                op1.setBackgroundColor(getResources().getColor(R.color.authui_colorPrimaryDark));
+                                w++;
+                            }
                             break;
                         case 2:
                             selans = op2.getText().toString();
                             submitBtn.setText("Continue");
+                            if(selans.equals(ans)){
+                                op2.setBackgroundColor(getResources().getColor(R.color.Green));
+                                r++;
+                            }
+                            else{
+                                op2.setBackgroundColor(getResources().getColor(R.color.authui_colorPrimaryDark));
+                                w++;
+                            }
                             break;
                         case 3:
                             selans = op3.getText().toString();
                             submitBtn.setText("Continue");
+                            if(selans.equals(ans)){
+                                op3.setBackgroundColor(getResources().getColor(R.color.Green));
+                                r++;
+                            }
+                            else{
+                                op3.setBackgroundColor(getResources().getColor(R.color.authui_colorPrimaryDark));
+                                w++;
+                            }
                             break;
                         case 4:
                             selans = op4.getText().toString();
                             submitBtn.setText("Continue");
+                            if(selans.equals(ans)){
+                                op4.setBackgroundColor(getResources().getColor(R.color.Green));
+                                r++;
+                            }
+                            else{
+                                op4.setBackgroundColor(getResources().getColor(R.color.authui_colorPrimaryDark));
+                                w++;
+                            }
                             break;
                         case 0:
                             Toast.makeText(getApplicationContext(), "Error, Pick an answer!", Toast.LENGTH_LONG).show();
                             break;
                     }
                     if(selans.equals(ans)){
+
                         r++;
                     }
                     else{
